@@ -34,27 +34,27 @@ windows_batch "install_nova" do
   not_if {::File.exists?("#{node[:openstack][:nova][:installed]}")}
 end
 
-cookbook_file "#{node[:cache_location]}#{node[:openstack][:neutron][:file]}" do
-  source node[:openstack][:neutron][:file]
-  not_if {::File.exists?(node[:openstack][:neutron][:installed])}
+cookbook_file "#{node[:cache_location]}#{node[:openstack][:quantum][:file]}" do
+  source node[:openstack][:quantum][:file]
+  not_if {::File.exists?(node[:openstack][:quantum][:installed])}
 end
 
-windows_batch "unzip_neutron" do
+windows_batch "unzip_quantum" do
   code <<-EOH
-  #{node[:sevenzip][:command]} x #{node[:cache_location]}#{node[:openstack][:neutron][:file]} -o#{node[:openstack][:location]}\\dist -r -y
-  #{node[:sevenzip][:command]} x #{node[:openstack][:location]}\\dist\\#{node[:openstack][:neutron][:name]}-#{node[:openstack][:neutron][:version]}.tar -o#{node[:openstack][:location]} -r -y
+  #{node[:sevenzip][:command]} x #{node[:cache_location]}#{node[:openstack][:quantum][:file]} -o#{node[:openstack][:location]}\\dist -r -y
+  #{node[:sevenzip][:command]} x #{node[:openstack][:location]}\\dist\\#{node[:openstack][:quantum][:name]}-#{node[:openstack][:quantum][:version]}.tar -o#{node[:openstack][:location]} -r -y
   rmdir /S /Q #{node[:openstack][:location]}\\dist
-  ren #{node[:openstack][:location]}\\#{node[:openstack][:neutron][:name]}-#{node[:openstack][:neutron][:version]} #{node[:openstack][:neutron][:name]}
+  ren #{node[:openstack][:location]}\\#{node[:openstack][:quantum][:name]}-#{node[:openstack][:quantum][:version]} #{node[:openstack][:quantum][:name]}
   EOH
-  not_if {::File.exists?("#{node[:openstack][:location]}\\#{node[:openstack][:neutron][:name]}")}
+  not_if {::File.exists?("#{node[:openstack][:location]}\\#{node[:openstack][:quantum][:name]}")}
 end
 
-windows_batch "install_neutron" do
+windows_batch "install_quantum" do
   code <<-EOH
   cd #{node[:openstack][:location]}
-  cd #{node[:openstack][:neutron][:name]}
+  cd #{node[:openstack][:quantum][:name]}
   #{node[:python][:command]} setup.py install --force
   EOH
-  # not_if {::File.exists?("#{node[:openstack][:neutron][:installed]}")}
+  # not_if {::File.exists?("#{node[:openstack][:quantum][:installed]}")}
 end
 
