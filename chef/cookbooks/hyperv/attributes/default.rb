@@ -33,8 +33,8 @@ default[:openstack][:nova][:target] = "#{node[:openstack][:location]}"
 default[:openstack][:nova][:installed] = "#{node[:python][:path]}\\Scripts\\nova-compute.exe"
 
 default[:openstack][:neutron][:name] = "neutron"
-default[:openstack][:neutron][:version] = "2014.1.2"
-default[:openstack][:neutron][:file] = "neutron-2014.1.2.tar.gz"
+default[:openstack][:neutron][:version] = "2014.1.3"
+default[:openstack][:neutron][:file] = "neutron-2014.1.3.tar.gz"
 default[:openstack][:neutron][:target] = "#{node[:openstack][:location]}"
 default[:openstack][:neutron][:installed] = "#{node[:python][:path]}\\Scripts\\neutron-hyperv-agent.exe"
 
