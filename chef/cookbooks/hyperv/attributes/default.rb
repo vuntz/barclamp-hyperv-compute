@@ -27,8 +27,8 @@ default[:python][:installed] = "#{node[:python][:scripts]}\\#{node[:python][:pyw
 default[:openstack][:location] = 'C:\OpenStack'
 
 default[:openstack][:nova][:name] = "nova"
-default[:openstack][:nova][:version] = "2014.1.2"
-default[:openstack][:nova][:file] = "nova-2014.1.2.tar.gz"
+default[:openstack][:nova][:version] = "2014.1.3"
+default[:openstack][:nova][:file] = "nova-2014.1.3.tar.gz"
 default[:openstack][:nova][:target] = "#{node[:openstack][:location]}"
 default[:openstack][:nova][:installed] = "#{node[:python][:path]}\\Scripts\\nova-compute.exe"
 
