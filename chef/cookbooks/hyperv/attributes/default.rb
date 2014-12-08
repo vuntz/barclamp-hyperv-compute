@@ -27,14 +27,14 @@ default[:python][:installed] = "#{node[:python][:scripts]}\\#{node[:python][:pyw
 default[:openstack][:location] = 'C:\OpenStack'
 
 default[:openstack][:nova][:name] = "nova"
-default[:openstack][:nova][:version] = "2014.1.2"
-default[:openstack][:nova][:file] = "nova-2014.1.2.tar.gz"
+default[:openstack][:nova][:version] = "2014.1.3"
+default[:openstack][:nova][:file] = "nova-2014.1.3.tar.gz"
 default[:openstack][:nova][:target] = "#{node[:openstack][:location]}"
 default[:openstack][:nova][:installed] = "#{node[:python][:path]}\\Scripts\\nova-compute.exe"
 
 default[:openstack][:neutron][:name] = "neutron"
-default[:openstack][:neutron][:version] = "2014.1.2"
-default[:openstack][:neutron][:file] = "neutron-2014.1.2.tar.gz"
+default[:openstack][:neutron][:version] = "2014.1.3"
+default[:openstack][:neutron][:file] = "neutron-2014.1.3.tar.gz"
 default[:openstack][:neutron][:target] = "#{node[:openstack][:location]}"
 default[:openstack][:neutron][:installed] = "#{node[:python][:path]}\\Scripts\\neutron-hyperv-agent.exe"
 
@@ -45,7 +45,7 @@ default[:openstack][:log] = "C:\\OpenStack\\log"
 
 default[:service][:file] = "OpenStackService.exe"
 default[:service][:nova][:name] = "nova-compute"
-default[:service][:nova][:displayname] = "Openstack Nova Compute Service" 
+default[:service][:nova][:displayname] = "Openstack Nova Compute Service"
 default[:service][:nova][:description] = "Service Wrapper for Openstack Nova Compute - Manages the Openstack Nova Compute as a Windows Service"
 default[:service][:neutron][:name] = "neutron-hyperv-agent"
 default[:service][:neutron][:displayname] = "OpenStack Neutron Hyper-V Agent Service"
