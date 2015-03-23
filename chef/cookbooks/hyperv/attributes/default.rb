@@ -9,6 +9,9 @@ default[:features_list][:hyperv] = {
   "RSAT-Hyper-V-Tools-Feature" => {
     "restart" => false
   },
+  "Microsoft-Hyper-V-Management-Clients" => {
+    "restart" => false
+  },
   "Microsoft-Hyper-V-Management-PowerShell" => {
     "restart" => true
   }
